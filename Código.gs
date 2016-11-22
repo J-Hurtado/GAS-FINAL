@@ -64,5 +64,50 @@ function funcionFormularioIncidencia() {
     
   }
   
-
-
+//Con esta función limpiamos los datos de la primera hoja de nuestro sheet.
+  function limpiarSheet(){
+  var ui = SpreadsheetApp.getUi();
+  var sps=SpreadsheetApp.getActiveSpreadsheet();
+  var sheet=sps.getSheets();
+  var rows=sheet[0].getDataRange();
+    var numRows=rows.getNumRows()-1;
+    var values=rows.getValues();
+    
+  var i=1;
+  if(values[1]==undefined){
+    ui.alert("No hay datos");
+  }else{
+    while(values[i]!=undefined){
+      i++;
+    }
+    while(i>1){
+      sheet=sps.getSheets()[0];
+      sheet.deleteRow(i);//Borra la fila
+      i--;
+    }
+  }
+  }
+    
+//Con esta función limpiamos los datos de la segunda hoja de nuestro sheet.
+  function limpiarSheet2(){
+  var ui = SpreadsheetApp.getUi();
+  var sps=SpreadsheetApp.getActiveSpreadsheet();
+  var sheet=sps.getSheets();
+  var rows=sheet[1].getDataRange();
+    var numRows=rows.getNumRows()-1;
+    var values=rows.getValues();
+    
+  var i=1;
+  if(values[1]==undefined){
+    ui.alert("No hay datos");
+  }else{
+    while(values[i]!=undefined){
+      i++;
+    }
+    while(i>1){
+      sheet=sps.getSheets()[1];
+      sheet.deleteRow(i);//Borra la fila
+      i--;
+    }
+  }
+  }
